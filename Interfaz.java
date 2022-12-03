@@ -34,6 +34,11 @@ public class Interfaz extends javax.swing.JFrame {
         New = new javax.swing.JMenuItem();
         Save = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        Font = new javax.swing.JCheckBoxMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        Italic = new javax.swing.JCheckBoxMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        Sub = new javax.swing.JCheckBoxMenuItem();
         jMenu6 = new javax.swing.JMenu();
         MdO = new javax.swing.JCheckBoxMenuItem();
 
@@ -55,6 +60,8 @@ public class Interfaz extends javax.swing.JFrame {
         jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu1.add(jSeparator1);
 
+        Open.setBackground(new java.awt.Color(204, 204, 204));
+        Open.setForeground(new java.awt.Color(0, 0, 0));
         Open.setText("Abrir");
         Open.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,9 +70,13 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jMenu1.add(Open);
 
+        New.setBackground(new java.awt.Color(204, 204, 204));
+        New.setForeground(new java.awt.Color(0, 0, 0));
         New.setText("Nuevo Archivo");
         jMenu1.add(New);
 
+        Save.setBackground(new java.awt.Color(204, 204, 204));
+        Save.setForeground(new java.awt.Color(0, 0, 0));
         Save.setText("Guardar");
         jMenu1.add(Save);
 
@@ -73,8 +84,36 @@ public class Interfaz extends javax.swing.JFrame {
 
         jMenu2.setBackground(new java.awt.Color(255, 255, 255));
         jMenu2.setForeground(new java.awt.Color(0, 0, 0));
-        jMenu2.setText("Opciones");
+        jMenu2.setText("Opciones de texto");
         jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        Font.setBackground(new java.awt.Color(204, 204, 204));
+        Font.setForeground(new java.awt.Color(0, 0, 0));
+        Font.setText("Letra Negrita");
+        Font.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FontActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Font);
+        jMenu2.add(jSeparator2);
+
+        Italic.setBackground(new java.awt.Color(204, 204, 204));
+        Italic.setForeground(new java.awt.Color(0, 0, 0));
+        Italic.setText("Letra Italic");
+        Italic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItalicActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Italic);
+        jMenu2.add(jSeparator3);
+
+        Sub.setBackground(new java.awt.Color(204, 204, 204));
+        Sub.setForeground(new java.awt.Color(0, 0, 0));
+        Sub.setText("Letra Subrayada");
+        jMenu2.add(Sub);
+
         jMenuBar1.add(jMenu2);
 
         jMenu6.setBackground(new java.awt.Color(255, 255, 255));
@@ -100,12 +139,26 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MdOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MdOActionPerformed
-         
+         if (MdO.isSelected()==true){
+             lz.setBackground(Color.DARK_GRAY);
+             lz.setForeground(Color.white);
+         }else if (MdO.isSelected()==false){
+             lz.setBackground(Color.white);
+             lz.setForeground(Color.black);
+         }
     }//GEN-LAST:event_MdOActionPerformed
 
     private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_OpenActionPerformed
+
+    private void ItalicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItalicActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ItalicActionPerformed
+
+    private void FontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FontActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FontActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,10 +196,13 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBoxMenuItem Font;
+    private javax.swing.JCheckBoxMenuItem Italic;
     private javax.swing.JCheckBoxMenuItem MdO;
     private javax.swing.JMenuItem New;
     private javax.swing.JMenuItem Open;
     private javax.swing.JMenuItem Save;
+    private javax.swing.JCheckBoxMenuItem Sub;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -154,6 +210,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
     private java.awt.TextArea lz;
     // End of variables declaration//GEN-END:variables
 }
