@@ -2,16 +2,26 @@ package cristopher_flores_examen;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Alex
  */
 public class Interfaz extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Interfaz
-     */
+    JFileChooser archTxt = new JFileChooser();
+    File archivo;
+    byte[] bytesImg;
+    Menu gestion = new Menu();
     public Interfaz() {
         initComponents();
     }
@@ -32,7 +42,6 @@ public class Interfaz extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         Open = new javax.swing.JMenuItem();
-        New = new javax.swing.JMenuItem();
         Save = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         Bold = new javax.swing.JCheckBoxMenuItem();
@@ -70,14 +79,14 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jMenu1.add(Open);
 
-        New.setBackground(new java.awt.Color(204, 204, 204));
-        New.setForeground(new java.awt.Color(0, 0, 0));
-        New.setText("Nuevo Archivo");
-        jMenu1.add(New);
-
         Save.setBackground(new java.awt.Color(204, 204, 204));
         Save.setForeground(new java.awt.Color(0, 0, 0));
         Save.setText("Guardar");
+        Save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveActionPerformed(evt);
+            }
+        });
         jMenu1.add(Save);
 
         jMenuBar1.add(jMenu1);
@@ -144,7 +153,17 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_MdOActionPerformed
 
     private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
-        
+       if(archTxt.showDialog(null, "ABRIR ARCHIVO") == JFileChooser.APPROVE_OPTION){
+            archivo = archTxt.getSelectedFile();
+            if(archivo.canRead()){
+                if(archivo.getName().endsWith("txt")){
+                    String contenido = gestion.AbrirTexto(archivo);
+                    lz.setText(contenido);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Por favor seleccione un archivo de texto o de imagen.");
+                }
+            }
+        }
     }//GEN-LAST:event_OpenActionPerformed
 
     private void ItalicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItalicActionPerformed
@@ -162,6 +181,23 @@ public class Interfaz extends javax.swing.JFrame {
             lz.setFont(new Font("Dialog", Font. PLAIN, 12));
         }
     }//GEN-LAST:event_BoldActionPerformed
+
+    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
+        if(archTxt.showDialog(null, "GUARDAR TEXTO") == JFileChooser.APPROVE_OPTION){
+            archivo=archTxt.getSelectedFile();
+            if(archivo.getName().endsWith("txt")){
+                String contenido = lz.getText();
+                String respuesta = gestion.GuardarTexto(archivo, contenido);
+                if(respuesta!=null){
+                    JOptionPane.showMessageDialog(null, respuesta);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Error al guardar texto.");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "El texto se debe guardar en un formato de texto.");
+            }
+        }
+    }//GEN-LAST:event_SaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,7 +238,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem Bold;
     private javax.swing.JCheckBoxMenuItem Italic;
     private javax.swing.JCheckBoxMenuItem MdO;
-    private javax.swing.JMenuItem New;
     private javax.swing.JMenuItem Open;
     private javax.swing.JMenuItem Save;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
