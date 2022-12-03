@@ -160,7 +160,7 @@ public class Interfaz extends javax.swing.JFrame {
                     String contenido = gestion.AbrirTexto(archivo);
                     lz.setText(contenido);
                 }else{
-                    JOptionPane.showMessageDialog(null, "Por favor seleccione un archivo de texto o de imagen.");
+                    JOptionPane.showMessageDialog(null, "Seleccione un archivo de texto");
                 }
             }
         }
@@ -169,7 +169,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void ItalicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItalicActionPerformed
          if (Italic.isSelected()==true){
             lz.setFont(new Font("Dialog", Font. ITALIC, 12));
-        }else if (Italic.isSelected()==true){
+        }else if (Italic.isSelected()==false){
             lz.setFont(new Font("Dialog", Font. PLAIN, 12));
         }
     }//GEN-LAST:event_ItalicActionPerformed
@@ -177,13 +177,13 @@ public class Interfaz extends javax.swing.JFrame {
     private void BoldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoldActionPerformed
         if (Bold.isSelected()==true){
             lz.setFont(new Font("Dialog", Font. BOLD, 12));
-        }else if (Bold.isSelected()==true){
+        }else if (Bold.isSelected()==false){
             lz.setFont(new Font("Dialog", Font. PLAIN, 12));
         }
     }//GEN-LAST:event_BoldActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-        if(archTxt.showDialog(null, "GUARDAR TEXTO") == JFileChooser.APPROVE_OPTION){
+        if(archTxt.showDialog(null, "GUARDAR TEXTO")==JFileChooser.APPROVE_OPTION){
             archivo=archTxt.getSelectedFile();
             if(archivo.getName().endsWith("txt")){
                 String contenido=lz.getText();
