@@ -186,8 +186,8 @@ public class Interfaz extends javax.swing.JFrame {
         if(archTxt.showDialog(null, "GUARDAR TEXTO") == JFileChooser.APPROVE_OPTION){
             archivo=archTxt.getSelectedFile();
             if(archivo.getName().endsWith("txt")){
-                String contenido = lz.getText();
-                String respuesta = gestion.GuardarTexto(archivo, contenido);
+                String contenido=lz.getText();
+                String respuesta=gestion.GuardarTexto(archivo, contenido);
                 if(respuesta!=null){
                     JOptionPane.showMessageDialog(null, respuesta);
                 }else{
