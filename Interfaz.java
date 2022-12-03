@@ -1,6 +1,7 @@
 package cristopher_flores_examen;
 
 import java.awt.Color;
+import java.awt.Font;
 
 /**
  *
@@ -34,11 +35,10 @@ public class Interfaz extends javax.swing.JFrame {
         New = new javax.swing.JMenuItem();
         Save = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        Font = new javax.swing.JCheckBoxMenuItem();
+        Bold = new javax.swing.JCheckBoxMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         Italic = new javax.swing.JCheckBoxMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        Sub = new javax.swing.JCheckBoxMenuItem();
         jMenu6 = new javax.swing.JMenu();
         MdO = new javax.swing.JCheckBoxMenuItem();
 
@@ -87,15 +87,15 @@ public class Interfaz extends javax.swing.JFrame {
         jMenu2.setText("Opciones de texto");
         jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        Font.setBackground(new java.awt.Color(204, 204, 204));
-        Font.setForeground(new java.awt.Color(0, 0, 0));
-        Font.setText("Letra Negrita");
-        Font.addActionListener(new java.awt.event.ActionListener() {
+        Bold.setBackground(new java.awt.Color(204, 204, 204));
+        Bold.setForeground(new java.awt.Color(0, 0, 0));
+        Bold.setText("Letra Negrita");
+        Bold.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FontActionPerformed(evt);
+                BoldActionPerformed(evt);
             }
         });
-        jMenu2.add(Font);
+        jMenu2.add(Bold);
         jMenu2.add(jSeparator2);
 
         Italic.setBackground(new java.awt.Color(204, 204, 204));
@@ -108,11 +108,6 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jMenu2.add(Italic);
         jMenu2.add(jSeparator3);
-
-        Sub.setBackground(new java.awt.Color(204, 204, 204));
-        Sub.setForeground(new java.awt.Color(0, 0, 0));
-        Sub.setText("Letra Subrayada");
-        jMenu2.add(Sub);
 
         jMenuBar1.add(jMenu2);
 
@@ -149,16 +144,24 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_MdOActionPerformed
 
     private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_OpenActionPerformed
 
     private void ItalicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItalicActionPerformed
-        // TODO add your handling code here:
+         if (Italic.isSelected()==true){
+            lz.setFont(new Font("Dialog", Font. ITALIC, 12));
+        }else if (Italic.isSelected()==true){
+            lz.setFont(new Font("Dialog", Font. PLAIN, 12));
+        }
     }//GEN-LAST:event_ItalicActionPerformed
 
-    private void FontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FontActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FontActionPerformed
+    private void BoldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoldActionPerformed
+        if (Bold.isSelected()==true){
+            lz.setFont(new Font("Dialog", Font. BOLD, 12));
+        }else if (Bold.isSelected()==true){
+            lz.setFont(new Font("Dialog", Font. PLAIN, 12));
+        }
+    }//GEN-LAST:event_BoldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,13 +199,12 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem Font;
+    private javax.swing.JCheckBoxMenuItem Bold;
     private javax.swing.JCheckBoxMenuItem Italic;
     private javax.swing.JCheckBoxMenuItem MdO;
     private javax.swing.JMenuItem New;
     private javax.swing.JMenuItem Open;
     private javax.swing.JMenuItem Save;
-    private javax.swing.JCheckBoxMenuItem Sub;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
