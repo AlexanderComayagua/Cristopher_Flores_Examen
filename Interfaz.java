@@ -2,14 +2,7 @@ package cristopher_flores_examen;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -20,7 +13,6 @@ import javax.swing.JOptionPane;
 public class Interfaz extends javax.swing.JFrame {
     JFileChooser archTxt = new JFileChooser();
     File archivo;
-    byte[] bytesImg;
     Menu gestion = new Menu();
     public Interfaz() {
         initComponents();
